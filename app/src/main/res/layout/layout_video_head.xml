@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_gray">
+
+    <RelativeLayout
+        android:id="@+id/rl_describe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/low_elevation_height"
+        android:padding="@dimen/margin_16"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="@dimen/margin_4"
+            android:text="视频主题"
+            android:textSize="@dimen/size_txt_title_small"
+            android:textColor="@color/txt_black"/>
+
+        <TextView
+            android:id="@+id/tv_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_title"
+            android:layout_marginTop="@dimen/margin_8"
+            android:text="播放："
+            android:textSize="@dimen/size_txt_small_tip"
+            android:textColor="@color/txt_gray"/>
+
+        <TextView
+            android:id="@+id/tv_playNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_title"
+            android:layout_marginTop="@dimen/margin_8"
+            android:layout_toRightOf="@id/tv_play"
+            android:text="0"
+            android:textSize="@dimen/size_txt_small_tip"
+            android:textColor="@color/txt_gray"/>
+
+        <TextView
+            android:id="@+id/tv_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_title"
+            android:layout_marginTop="@dimen/margin_8"
+            android:layout_marginLeft="@dimen/margin_12"
+            android:layout_toRightOf="@id/tv_playNum"
+            android:text="时长："
+            android:textSize="@dimen/size_txt_small_tip"
+            android:textColor="@color/txt_gray"/>
+
+        <TextView
+            android:id="@+id/tv_durationTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_title"
+            android:layout_marginTop="@dimen/margin_8"
+            android:layout_toRightOf="@id/tv_duration"
+            android:text="0"
+            android:textSize="@dimen/size_txt_small_tip"
+            android:textColor="@color/txt_gray"/>
+
+        <View
+            android:id="@+id/v_divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/divider_gray"
+            android:layout_below="@id/tv_play"
+            android:layout_marginTop="@dimen/margin_12"/>
+
+        <TextView
+            android:id="@+id/tv_describe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/v_divider"
+            android:layout_marginTop="@dimen/margin_12"
+            android:lineSpacingExtra="@dimen/margin_2"
+            android:text="详细描述"
+            android:textSize="@dimen/size_txt_describe"
+            android:textColor="@color/txt_gray"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_describe"
+        android:layout_marginTop="@dimen/margin_8"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:elevation="@dimen/low_elevation_height"
+        android:paddingRight="@dimen/margin_16"
+        android:paddingLeft="@dimen/margin_16"
+        android:paddingTop="@dimen/margin_12"
+        android:paddingBottom="@dimen/margin_12">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="评论 "
+            android:textSize="@dimen/size_txt_small_tip"
+            android:textColor="@color/txt_gray"/>
+
+        <TextView
+            android:id="@+id/tv_commentNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="@dimen/size_txt_small_tip"
+            android:textColor="@color/txt_gray"/>
+    </LinearLayout>
+</RelativeLayout>
