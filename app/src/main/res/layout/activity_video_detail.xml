@@ -15,11 +15,9 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/tb_video"
             style="@style/ToolbarStyle"
-            android:background="@color/colorPrimary"
             android:elevation="@dimen/elevation_height"
-            app:theme="@style/ToolbarStyle"
-            app:title="@string/app_name"
-            app:titleTextColor="@color/white"/>
+            app:theme="@style/ToolbarTheme"
+            app:title="@string/app_name"/>
 
         <FrameLayout
             android:id="@+id/fl_background"

@@ -9,6 +9,6 @@ import java.util.List;
  */
 public interface IMainView {
 
-    void initView(List<String> titles, List<Fragment> fragments);
+//    void initView(List<String> titles, List<Fragment> fragments);
 
 }

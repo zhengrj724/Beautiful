@@ -2,4 +2,8 @@
     <string name="app_name">最美创意</string>
     <string name="draw_open">打开侧滑</string>
     <string name="draw_close">关闭侧滑</string>
+
+    <string name="recommend">精选</string>
+    <string name="classify">分类</string>
+    <string name="personal">我的</string>
 </resources>

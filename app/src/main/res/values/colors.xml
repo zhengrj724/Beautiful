@@ -53,6 +53,8 @@
     <color name="txt_gray">#565656</color>
     <color name="txt_light_gray">#898989</color>
 
+    <color name="icon_gray">#898989</color>
+
     <color name="bg_gray">#f2f2f2</color>
     <color name="bg_gray_dark">#cdcdcd</color>
     <color name="bg_agray">#49dddddd</color>

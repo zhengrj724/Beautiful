@@ -2,20 +2,17 @@ package com.beautiful.beautiful.mvp.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.beautiful.beautiful.R;
 import com.beautiful.beautiful.config.Key;
-import com.beautiful.beautiful.config.Value;
 import com.beautiful.beautiful.mvp.Info.IVideoView;
 import com.beautiful.beautiful.mvp.model.entity.Tb_Video;
 import com.beautiful.beautiful.mvp.presenter.VideoPresenter;
@@ -34,7 +31,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Mr.R on 2016/9/24.
  */
-public class VideoFragment extends BaseFragment implements
+public class RecommendFragment extends BaseFragment implements
         SwipeRefreshLayout.OnRefreshListener, IVideoView {
 
     @Bind(R.id.rv_video)
@@ -67,7 +64,7 @@ public class VideoFragment extends BaseFragment implements
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.fragment_video, container, false);
+        mView = inflater.inflate(R.layout.fragment_recommed, container, false);
         ButterKnife.bind(this, mView);
         init();
         return mView;
