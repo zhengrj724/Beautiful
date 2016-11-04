@@ -11,4 +11,105 @@
         app:theme="@style/ToolbarTheme"
         app:title="@string/classify"
         android:elevation="@dimen/elevation_height"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:paddingTop="@dimen/margin_24"
+            android:paddingBottom="@dimen/margin_24">
+
+            <TextView
+                android:id="@+id/tv_classify0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:drawableTop="@mipmap/ic_launcher"
+                android:text="创意"/>
+
+            <TextView
+                android:id="@+id/tv_classify1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:drawableTop="@mipmap/ic_launcher"
+                android:text="广告"/>
+
+            <TextView
+                android:id="@+id/tv_classify2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:drawableTop="@mipmap/ic_launcher"
+                android:text="时尚"/>
+        </TableRow>
+
+        <TableRow
+            android:paddingTop="@dimen/margin_24"
+            android:paddingBottom="@dimen/margin_24">
+
+            <TextView
+                android:id="@+id/tv_classify3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:drawableTop="@mipmap/ic_launcher"
+                android:text="创意"/>
+
+            <TextView
+                android:id="@+id/tv_classify4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:drawableTop="@mipmap/ic_launcher"
+                android:text="广告"/>
+
+            <TextView
+                android:id="@+id/tv_classify5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:drawableTop="@mipmap/ic_launcher"
+                android:text="时尚"/>
+        </TableRow>
+
+        <TableRow
+            android:paddingTop="@dimen/margin_24"
+            android:paddingBottom="@dimen/margin_24">
+
+            <TextView
+                android:id="@+id/tv_classify6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:drawableTop="@mipmap/ic_launcher"
+                android:text="创意"/>
+
+            <TextView
+                android:id="@+id/tv_classify7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:drawableTop="@mipmap/ic_launcher"
+                android:text="广告"/>
+
+            <TextView
+                android:id="@+id/tv_classify8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:drawableTop="@mipmap/ic_launcher"
+                android:text="时尚"/>
+        </TableRow>
+    </TableLayout>
 </LinearLayout>

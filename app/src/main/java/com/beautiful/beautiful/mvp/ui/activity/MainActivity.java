@@ -4,11 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,13 +12,8 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.beautiful.beautiful.R;
-import com.beautiful.beautiful.mvp.Info.IMainView;
-import com.beautiful.beautiful.mvp.presenter.MainPresenter;
-import com.beautiful.beautiful.mvp.ui.adapter.MainFragmentAdapter;
 import com.beautiful.beautiful.mvp.ui.common.BaseActivity;
 import com.beautiful.beautiful.utils.FragmentController;
-
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -66,6 +57,7 @@ public class MainActivity extends BaseActivity {
                         mFragmentController.showFragment(1);
                         break;
                     case R.id.menu_personal:
+                        mFragmentController.showFragment(2);
                         break;
                     default:
                         break;
@@ -73,29 +65,6 @@ public class MainActivity extends BaseActivity {
                 return true;
             }
         });
-    }
-
-    //初始化工具栏
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_tool, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    //工具栏按钮点击事件
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_notification:
-                Toast.makeText(this, "通知", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.menu_search:
-                Toast.makeText(this, "搜索", Toast.LENGTH_SHORT).show();
-                break;
-            default:
-                break;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     //按两次返回键退出程序

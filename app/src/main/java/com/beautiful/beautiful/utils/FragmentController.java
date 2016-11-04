@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.beautiful.beautiful.mvp.ui.fragment.ClassifyFragment;
+import com.beautiful.beautiful.mvp.ui.fragment.PersonalFragment;
 import com.beautiful.beautiful.mvp.ui.fragment.RecommendFragment;
 
 import java.util.ArrayList;
@@ -36,6 +37,7 @@ public class FragmentController {
         fragments = new ArrayList<>();
         fragments.add(new RecommendFragment());
         fragments.add(new ClassifyFragment());
+        fragments.add(new PersonalFragment());
 
         FragmentTransaction transaction = manager.beginTransaction();
         for (Fragment fragment : fragments) {
