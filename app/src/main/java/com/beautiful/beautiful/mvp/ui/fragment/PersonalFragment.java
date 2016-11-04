@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.beautiful.beautiful.R;
 import com.beautiful.beautiful.lib.CircleImageView;
+import com.beautiful.beautiful.mvp.ui.activity.LoginActivity;
 import com.beautiful.beautiful.mvp.ui.common.BaseFragment;
 import com.beautiful.beautiful.utils.ToastUtil;
 
@@ -60,7 +61,7 @@ public class PersonalFragment extends BaseFragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.civ_avatar:
-                ToastUtil.ShortToast(activity,"换头像");
+                intentToActivity(activity, LoginActivity.class);
                 break;
             case R.id.rl_my_collect:
                 ToastUtil.ShortToast(activity,"我的收藏");

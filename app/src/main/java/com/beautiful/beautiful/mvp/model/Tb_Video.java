@@ -1,10 +1,8 @@
-package com.beautiful.beautiful.mvp.model.entity;
+package com.beautiful.beautiful.mvp.model;
 
-import java.io.File;
 import java.io.Serializable;
 
 import cn.bmob.v3.BmobObject;
-import cn.bmob.v3.datatype.BmobFile;
 
 /**
  * Created by Mr.R on 2016/9/24.

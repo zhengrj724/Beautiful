@@ -1,4 +1,4 @@
-package com.beautiful.beautiful.mvp.model.entity;
+package com.beautiful.beautiful.mvp.model;
 
 import java.io.Serializable;
 import java.util.List;
@@ -15,13 +15,11 @@ public class Tb_Comment extends BmobObject implements Serializable{
     private String username;
     private String textContent;
     private long datetime;
-    private int parentId;
-    private int childId;
+    private int parentId;//评论目标视频的id
+    private int childId;//某视频下某评论的id
     private List<Tb_Comment> childComments;
 
-    public Tb_Comment() {
-
-    }
+    public Tb_Comment() {}
 
     public Tb_Comment(int _id, String username, String textContent,
                       Long datetime, int parentId, int childId) {
@@ -96,5 +94,4 @@ public class Tb_Comment extends BmobObject implements Serializable{
     public void setChildComments(List<Tb_Comment> childComments) {
         this.childComments = childComments;
     }
-
 }

@@ -8,8 +8,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.beautiful.beautiful.R;
-import com.beautiful.beautiful.mvp.model.entity.Tb_Comment;
-import com.beautiful.beautiful.mvp.model.entity.Tb_Video;
+import com.beautiful.beautiful.mvp.model.Tb_Comment;
+import com.beautiful.beautiful.mvp.model.Tb_Video;
 import com.beautiful.beautiful.mvp.ui.holder.CommentHolder;
 
 import java.util.List;

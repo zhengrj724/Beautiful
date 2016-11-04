@@ -23,8 +23,8 @@ import android.widget.VideoView;
 
 import com.beautiful.beautiful.R;
 import com.beautiful.beautiful.config.Key;
-import com.beautiful.beautiful.mvp.model.entity.Tb_Comment;
-import com.beautiful.beautiful.mvp.model.entity.Tb_Video;
+import com.beautiful.beautiful.mvp.model.Tb_Comment;
+import com.beautiful.beautiful.mvp.model.Tb_Video;
 import com.beautiful.beautiful.mvp.ui.adapter.CommentAdapter;
 import com.beautiful.beautiful.mvp.ui.common.BaseActivity;
 import com.beautiful.beautiful.utils.HandlerKey;

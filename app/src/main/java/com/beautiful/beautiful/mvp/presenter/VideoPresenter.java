@@ -1,19 +1,16 @@
 package com.beautiful.beautiful.mvp.presenter;
 
 import android.os.Handler;
-import android.util.Log;
 
 import com.beautiful.beautiful.mvp.Info.IVideoView;
-import com.beautiful.beautiful.mvp.model.entity.Tb_Video;
+import com.beautiful.beautiful.mvp.model.Tb_Video;
 import com.beautiful.beautiful.utils.HandlerKey;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
-import rx.Observable;
 
 /**
  * Created by Mr.R on 2016/9/25.

@@ -6,6 +6,7 @@
     <dimen name="size_txt_main_radio">10sp</dimen>
     <dimen name="size_txt_small_tip">12sp</dimen>
     <dimen name="size_txt_describe">14sp</dimen>
+    <dimen name="size_txt_normal">14sp</dimen>
     <dimen name="size_txt_body">16sp</dimen>
     <dimen name="size_txt_message">18sp</dimen>
     <dimen name="size_txt_title_small">18sp</dimen>

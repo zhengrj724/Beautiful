@@ -6,10 +6,8 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.view.KeyEvent;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.beautiful.beautiful.R;
 import com.beautiful.beautiful.mvp.ui.common.BaseActivity;
