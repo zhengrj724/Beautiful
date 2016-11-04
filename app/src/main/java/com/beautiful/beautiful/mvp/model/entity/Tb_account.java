@@ -5,4 +5,5 @@ package com.beautiful.beautiful.mvp.model.entity;
  */
 
 public class Tb_account {
+
 }
