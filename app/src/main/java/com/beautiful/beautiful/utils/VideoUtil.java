@@ -1,18 +1,13 @@
 package com.beautiful.beautiful.utils;
 
-import android.annotation.TargetApi;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaMetadataRetriever;
-import android.os.Build;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-
-import java.util.HashMap;
 
 import rx.Observable;
 import rx.Subscriber;

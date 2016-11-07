@@ -7,8 +7,6 @@ import cn.bmob.v3.BmobUser;
  */
 public class Tb_User extends BmobUser {
 
-    private String username;
-    private String password;
     private String avatar;//头像
     private String nickName;//昵称
     private long collectNum;//收藏数
@@ -18,28 +16,9 @@ public class Tb_User extends BmobUser {
     public Tb_User() {}
 
     public Tb_User(String username, String password) {
-        this.username = username;
-        this.password = password;
+        this.setUsername(username);
+        this.setPassword(password);
         this.nickName = username;
-    }
-
-    @Override
-    public String getUsername() {
-        return username;
-    }
-
-    @Override
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getAvatar() {

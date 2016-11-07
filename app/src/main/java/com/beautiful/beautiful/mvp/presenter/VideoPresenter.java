@@ -20,7 +20,6 @@ public class VideoPresenter {
     private IVideoView view;
     private BmobQuery<Tb_Video> query;
 
-
     public VideoPresenter(IVideoView view) {
         this.view = view;
         query = new BmobQuery<>();

@@ -51,4 +51,26 @@
         android:text="登录"
         android:textColor="@color/white"
         android:background="@drawable/button_shape"/>
+
+    <TextView
+        android:id="@+id/tv_forget_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btn_login"
+        android:padding="@dimen/margin_16"
+        android:text="忘记密码？"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/size_txt_body"/>
+    
+    <TextView
+        android:id="@+id/tv_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:padding="@dimen/margin_16"
+        android:text="新用户"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/size_txt_body"/>
 </RelativeLayout>
