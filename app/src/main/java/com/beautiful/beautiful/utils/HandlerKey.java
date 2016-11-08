@@ -46,18 +46,8 @@ public class HandlerKey {
     //刷新失败
     public static final int REFRESH_FAIL = 0x113;
 
-    //极光
-    //注册成功
-    public static final int J_REGISTER_SUCCESS = 0x114;
-
-    //注册失败
-    public static final int J_REGISTER_FAIL = 0x115;
-
-    //登录成功
-    public static final int J_LOGIN_SUCCESS = 0x116;
-
-    //登录失败
-    public static final int J_LOGIN_FAIL = 0x117;
+    //刷新完成
+    public static final int REFRESH_COMPLETE = 0x114;
 
     //下载成功
     public static final int DOWNLOAD_SUCCESS = 0x118;

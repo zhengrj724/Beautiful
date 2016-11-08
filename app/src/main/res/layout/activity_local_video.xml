@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/bg_gray"
-    tools:context="com.beautiful.beautiful.mvp.ui.activity.VideoListActivity">
+    tools:context="com.beautiful.beautiful.mvp.ui.activity.LocalVideoActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/tb_video_list"
@@ -16,14 +16,8 @@
         app:theme="@style/ToolbarTheme"
         app:title="本地视频"/>
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/srl_video_list"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_video_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_video_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-    </android.support.v4.widget.SwipeRefreshLayout>
+        android:layout_height="match_parent"/>
 </LinearLayout>

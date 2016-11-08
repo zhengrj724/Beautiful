@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/ll_local_video"
     android:layout_width="match_parent"
     android:layout_height="80dp"
+    android:orientation="horizontal"
     android:layout_marginBottom="1dp"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:foreground="?attr/selectableItemBackground">
 
     <ImageView
         android:id="@+id/iv_thumbnail"
@@ -17,24 +19,59 @@
         android:layout_marginRight="@dimen/margin_16"
         android:scaleType="centerCrop"/>
 
-    <TextView
-        android:id="@+id/tv_duration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/margin_16"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:text="00:00"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/margin_12"
+        android:paddingBottom="@dimen/margin_12">
 
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/tv_duration"
-        android:layout_toRightOf="@id/iv_thumbnail"
-        android:layout_marginRight="@dimen/margin_16"
-        android:layout_centerVertical="true"
-        android:text="视频名称"
-        android:maxLines="3"
-        android:ellipsize="end"/>
-</RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/margin_16">
+
+            <Button
+                android:id="@+id/btn_upload"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:elevation="0dp"
+                android:layout_centerInParent="true"
+                android:text="上传"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_txt_normal"
+                android:background="@drawable/circle_button_shape"/>
+
+            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                android:id="@+id/cpb_upload"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_centerInParent="true"
+                app:background_progressbar_color="@color/bg_gray_dark"
+                app:background_progressbar_width="@dimen/size_2"
+                app:progressbar_color="@color/colorPrimary"
+                app:progressbar_width="@dimen/size_2"
+                android:visibility="invisible"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@id/rl_btn"
+            android:layout_marginRight="@dimen/margin_16"
+            android:text="视频名称"
+            android:maxLines="2"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/tv_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="00:00"/>
+    </RelativeLayout>
+</LinearLayout>
