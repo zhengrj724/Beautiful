@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_local_video"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginBottom="1dp"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_thumbnail"
+        android:layout_width="64dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/margin_16"
+        android:layout_marginTop="@dimen/margin_8"
+        android:layout_marginBottom="@dimen/margin_8"
+        android:layout_marginRight="@dimen/margin_16"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/tv_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/margin_16"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="00:00"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/tv_duration"
+        android:layout_toRightOf="@id/iv_thumbnail"
+        android:layout_marginRight="@dimen/margin_16"
+        android:layout_centerVertical="true"
+        android:text="视频名称"
+        android:maxLines="3"
+        android:ellipsize="end"/>
+</RelativeLayout>

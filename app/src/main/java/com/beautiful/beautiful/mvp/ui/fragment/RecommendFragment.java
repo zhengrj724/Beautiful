@@ -16,7 +16,7 @@ import com.beautiful.beautiful.config.Key;
 import com.beautiful.beautiful.mvp.Info.IVideoView;
 import com.beautiful.beautiful.mvp.model.Tb_Video;
 import com.beautiful.beautiful.mvp.presenter.VideoPresenter;
-import com.beautiful.beautiful.mvp.ui.activity.VideoDetail;
+import com.beautiful.beautiful.mvp.ui.activity.VideoDetailActivity;
 import com.beautiful.beautiful.mvp.ui.adapter.VideoAdapter;
 import com.beautiful.beautiful.mvp.ui.common.BaseFragment;
 import com.beautiful.beautiful.utils.HandlerKey;
@@ -90,7 +90,7 @@ public class RecommendFragment extends BaseFragment implements
             @Override
             public void onItemClick(View view, int position) {
                 //跳转到视频详情
-                Intent intent = new Intent(activity,VideoDetail.class);
+                Intent intent = new Intent(activity,VideoDetailActivity.class);
                 intent.putExtra(Key.VIDEO, mList.get(position));
                 startActivity(intent);
             }

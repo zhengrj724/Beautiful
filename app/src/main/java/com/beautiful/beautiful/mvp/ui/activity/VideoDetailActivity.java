@@ -38,7 +38,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class VideoDetail extends BaseActivity implements
+public class VideoDetailActivity extends BaseActivity implements
         SwipeRefreshLayout.OnRefreshListener {
 
     @Bind(R.id.tb_video)
