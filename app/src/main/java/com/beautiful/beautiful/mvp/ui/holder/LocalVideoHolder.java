@@ -1,23 +1,16 @@
 package com.beautiful.beautiful.mvp.ui.holder;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.media.ThumbnailUtils;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.beautiful.beautiful.R;
 import com.beautiful.beautiful.config.State;
 import com.beautiful.beautiful.utils.ToastUtil;
-import com.beautiful.beautiful.utils.VideoUtil;
 import com.bumptech.glide.Glide;
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 

@@ -12,12 +12,13 @@ import android.widget.TextView;
 import com.beautiful.beautiful.R;
 import com.beautiful.beautiful.mvp.Info.ILoginView;
 import com.beautiful.beautiful.mvp.presenter.LoginPresenter;
+import com.beautiful.beautiful.mvp.ui.common.BaseActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class LoginActivity extends AppCompatActivity implements ILoginView {
+public class LoginActivity extends BaseActivity implements ILoginView {
 
     @Bind(R.id.et_username)
     public EditText etUsername;

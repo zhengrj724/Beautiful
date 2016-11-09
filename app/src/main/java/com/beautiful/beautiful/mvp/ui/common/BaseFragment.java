@@ -9,8 +9,6 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-import com.beautiful.beautiful.utils.BaseApplication;
-
 /**
  * Created by Mr.R on 2016/7/10.
  */

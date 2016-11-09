@@ -1,4 +1,4 @@
-package com.beautiful.beautiful.utils;
+package com.beautiful.beautiful.mvp.ui.common;
 
 import android.app.Activity;
 import android.app.Application;
@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.widget.ImageView;
 
+import com.beautiful.beautiful.mvp.model.Tb_User;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import cn.bmob.v3.Bmob;
  * Created by Mr.R on 2016/7/10.
  */
 public class BaseApplication extends Application {
-//    private Tb_user user;
+    private Tb_User user;
 //    private UserInfo myInfo;
     private List<Activity> activities;
 
@@ -49,6 +50,14 @@ public class BaseApplication extends Application {
         //.setFileExpiration(2500)
         //.build();
         //Bmob.initialize(config);
+    }
+
+    public Tb_User getUser() {
+        return user;
+    }
+
+    public void setUser(Tb_User user) {
+        this.user = user;
     }
 
     public void finish() {

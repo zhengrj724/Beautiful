@@ -32,7 +32,6 @@ public class LocalVideoAdapter
         extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context context;
     private List<VideoInfo> videos;
-    private BmobFile bmobFile;
 
     public LocalVideoAdapter(Context context, List<VideoInfo> videos) {
         this.context = context;

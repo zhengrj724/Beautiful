@@ -10,11 +10,13 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import com.beautiful.beautiful.R;
+import com.beautiful.beautiful.mvp.model.Tb_User;
 import com.beautiful.beautiful.mvp.ui.common.BaseActivity;
 import com.beautiful.beautiful.utils.FragmentController;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.bmob.v3.BmobUser;
 
 public class MainActivity extends BaseActivity {
 
@@ -32,6 +34,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        autoLogin();
         initView();
         initListener();
     }
@@ -63,6 +66,12 @@ public class MainActivity extends BaseActivity {
                 return true;
             }
         });
+    }
+
+    //自动登录
+    private void autoLogin() {
+        Tb_User user = BmobUser.getCurrentUser(Tb_User.class);
+        application.setUser(user);
     }
 
     //按两次返回键退出程序

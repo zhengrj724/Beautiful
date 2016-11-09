@@ -147,6 +147,7 @@
                     android:textSize="@dimen/size_txt_body"/>
 
                 <TextView
+                    android:id="@+id/tv_my_upload_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -190,6 +191,7 @@
                     android:textSize="@dimen/size_txt_body"/>
 
                 <TextView
+                    android:id="@+id/tv_my_browsed_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -224,6 +226,33 @@
                     android:layout_toRightOf="@id/iv_icon3"
                     android:layout_centerVertical="true"
                     android:text="设置"
+                    android:textColor="@color/txt_gray"
+                    android:textSize="@dimen/size_txt_body"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_16"
+                android:elevation="@dimen/layout_elevation_height"
+                android:background="@color/white"
+                android:foreground="?attr/selectableItemBackground">
+
+                <ImageView
+                    android:id="@+id/iv_icon4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_16"
+                    android:src="@mipmap/ic_settings_gray_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_title4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/iv_icon4"
+                    android:layout_centerVertical="true"
+                    android:text="退出登录"
                     android:textColor="@color/txt_gray"
                     android:textSize="@dimen/size_txt_body"/>
             </RelativeLayout>
