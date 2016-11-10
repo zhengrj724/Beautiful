@@ -3,16 +3,16 @@
     <item
         android:id="@+id/menu_recommend"
         android:checked="true"
-        android:icon="@mipmap/ic_local_activity_white_24dp"
+        android:icon="@drawable/ic_local_play_gray_24dp"
         android:title="@string/recommend"/>
 
     <item
         android:id="@+id/menu_classify"
-        android:icon="@mipmap/ic_dns_white_24dp"
+        android:icon="@drawable/ic_dashboard_gray_24dp"
         android:title="@string/classify"/>
 
     <item
         android:id="@+id/menu_personal"
-        android:icon="@mipmap/ic_person_white_24dp"
+        android:icon="@drawable/ic_person_gray_24dp"
         android:title="@string/personal"/>
 </menu>

@@ -15,6 +15,7 @@ import com.beautiful.beautiful.mvp.model.Tb_User;
 import com.beautiful.beautiful.mvp.ui.activity.LoginActivity;
 import com.beautiful.beautiful.mvp.ui.activity.MainActivity;
 import com.beautiful.beautiful.mvp.ui.common.BaseApplication;
+import com.beautiful.beautiful.utils.InputUtil;
 import com.beautiful.beautiful.utils.ToastUtil;
 
 import cn.bmob.v3.BmobUser;
@@ -35,6 +36,7 @@ public class LoginPresenter {
 
     //登录
     public void login() {
+        InputUtil.hideSoftInput(activity,activity.etPassword);
         showProgressDialog("登录中，请稍候...");
         String username = activity.etUsername.getText().toString().trim();
         String password = activity.etPassword.getText().toString().trim();
@@ -58,6 +60,7 @@ public class LoginPresenter {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
+                InputUtil.hideSoftInput(activity,etPassword);
                 showProgressDialog("注册中，请稍候...");
                 String username = etUsername.getText().toString().trim();
                 String password = etPassword.getText().toString().trim();

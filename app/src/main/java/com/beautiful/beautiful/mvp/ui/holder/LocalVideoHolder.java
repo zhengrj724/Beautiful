@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
 import java.io.File;
+import java.math.BigDecimal;
 
 import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.exception.BmobException;
@@ -29,6 +30,7 @@ public class LocalVideoHolder extends RecyclerView.ViewHolder {
     public ImageView ivThumbnail;
     public TextView tvTitle;
     public TextView tvDuration;
+    public TextView tvSize;
     public Button btnUpload;
     public CircularProgressBar cpbUpload;
     private BmobFile bmobFile;
@@ -39,6 +41,7 @@ public class LocalVideoHolder extends RecyclerView.ViewHolder {
                             ImageView ivThumbnail,
                             TextView tvTitle,
                             TextView tvDuration,
+                            TextView tvSize,
                             Button btnUpload,
                             CircularProgressBar cpbUpload) {
         super(parent);
@@ -47,6 +50,7 @@ public class LocalVideoHolder extends RecyclerView.ViewHolder {
         this.ivThumbnail = ivThumbnail;
         this.tvTitle = tvTitle;
         this.tvDuration = tvDuration;
+        this.tvSize = tvSize;
         this.btnUpload = btnUpload;
         this.cpbUpload = cpbUpload;
     }
@@ -56,11 +60,12 @@ public class LocalVideoHolder extends RecyclerView.ViewHolder {
         ImageView ivThumbnail = (ImageView) parent.findViewById(R.id.iv_thumbnail);
         TextView tvTitle = (TextView) parent.findViewById(R.id.tv_title);
         TextView tvDuration = (TextView) parent.findViewById(R.id.tv_duration);
+        TextView tvSize = (TextView) parent.findViewById(R.id.tv_size);
         Button btnUpload = (Button) parent.findViewById(R.id.btn_upload);
         CircularProgressBar cpbUpload = (CircularProgressBar) parent.findViewById(R.id.cpb_upload);
 
         return new LocalVideoHolder(parent,context,llLocalVideo,
-                ivThumbnail,tvTitle,tvDuration,btnUpload,cpbUpload);
+                ivThumbnail,tvTitle,tvDuration,tvSize,btnUpload,cpbUpload);
     }
 
     //设置图片
@@ -72,8 +77,29 @@ public class LocalVideoHolder extends RecyclerView.ViewHolder {
         tvTitle.setText(text);
     }
 
-    public void setTvDuration(CharSequence text) {
-        tvDuration.setText(text);
+    public void setTvDuration(long duration) {
+        int s = (int) (duration / 1000);
+        int min = s / 60;
+        String text = "时长：";
+        if (min == 0) {
+            if (s < 10) {
+                tvDuration.setText(text+"00:0"+s);
+            } else {
+                tvDuration.setText(text+"00:"+s);
+            }
+        } else {
+            if (s < 10) {
+                tvDuration.setText(text+min+":0"+s);
+            } else {
+                tvDuration.setText(text+min+":"+s);
+            }
+        }
+    }
+
+    public void setTvSize(float size) {
+        BigDecimal bd = new BigDecimal((size/1024/1024));
+        float sizeMB = bd.setScale(2,BigDecimal.ROUND_HALF_UP).floatValue();
+        tvSize.setText("大小："+sizeMB+"MB");
     }
 
     public void setButtonText(String text) {

@@ -83,6 +83,7 @@ public class LocalVideoActivity extends BaseActivity
                         break;
                     case R.id.btn_upload:
                         //上传视频
+                        //点击事件在LocalVideoAdapter中
                         break;
                     default:
                         break;

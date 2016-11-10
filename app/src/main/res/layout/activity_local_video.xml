@@ -14,7 +14,7 @@
         style="@style/ToolbarStyle"
         android:elevation="@dimen/elevation_height"
         app:theme="@style/ToolbarTheme"
-        app:title="本地视频"/>
+        app:title="上传视频"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_video_list"

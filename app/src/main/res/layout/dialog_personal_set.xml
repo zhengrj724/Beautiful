@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_avatar_set"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_16"
+        android:gravity="center_vertical"
+        android:text="换头像"
+        android:textColor="@color/txt_gray"
+        android:textSize="@dimen/size_txt_body"
+        android:drawableLeft="@drawable/ic_face_gray_24dp"
+        android:drawablePadding="@dimen/margin_16"
+        android:foreground="?attr/selectableItemBackground"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/divider_gray"/>
+
+    <TextView
+        android:id="@+id/tv_nickname_set"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_16"
+        android:gravity="center_vertical"
+        android:text="新昵称"
+        android:textColor="@color/txt_gray"
+        android:textSize="@dimen/size_txt_body"
+        android:drawableLeft="@drawable/ic_assignment_ind_gray_24dp"
+        android:drawablePadding="@dimen/margin_16"
+        android:foreground="?attr/selectableItemBackground"/>
+</LinearLayout>

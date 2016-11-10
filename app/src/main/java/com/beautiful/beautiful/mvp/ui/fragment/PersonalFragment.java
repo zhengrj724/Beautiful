@@ -1,6 +1,5 @@
 package com.beautiful.beautiful.mvp.ui.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.Toolbar;
@@ -12,9 +11,10 @@ import android.widget.TextView;
 
 import com.beautiful.beautiful.R;
 import com.beautiful.beautiful.lib.CircleImageView;
+import com.beautiful.beautiful.mvp.Info.IPersonalView;
 import com.beautiful.beautiful.mvp.model.Tb_User;
+import com.beautiful.beautiful.mvp.presenter.PersonalPresenter;
 import com.beautiful.beautiful.mvp.ui.activity.LocalVideoActivity;
-import com.beautiful.beautiful.mvp.ui.activity.LoginActivity;
 import com.beautiful.beautiful.mvp.ui.common.BaseFragment;
 import com.beautiful.beautiful.utils.ToastUtil;
 import com.bumptech.glide.Glide;
@@ -26,7 +26,7 @@ import butterknife.OnClick;
 /**
  * Created by Mr.R on 2016/9/24.
  */
-public class PersonalFragment extends BaseFragment {
+public class PersonalFragment extends BaseFragment implements IPersonalView {
 
     @Bind(R.id.tb_personal)
     Toolbar tbPersonal;
@@ -54,11 +54,14 @@ public class PersonalFragment extends BaseFragment {
     RelativeLayout rlLogout;
 
     private View view;
+    private PersonalPresenter mPresenter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_personal, container, false);
         ButterKnife.bind(this, view);
+
+        init();
         return view;
     }
 
@@ -66,6 +69,10 @@ public class PersonalFragment extends BaseFragment {
     public void onStart() {
         super.onStart();
         initData();
+    }
+
+    private void init() {
+        mPresenter = new PersonalPresenter(this);
     }
 
     private void initData() {
@@ -94,37 +101,60 @@ public class PersonalFragment extends BaseFragment {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.civ_avatar:
-                Intent intent = new Intent(activity, LoginActivity.class);
-                startActivityForResult(intent, 0);
+                avatar();
                 break;
             case R.id.rl_my_collect:
                 ToastUtil.ShortToast(activity, "我的收藏");
+                myCollect();
                 break;
             case R.id.rl_my_upload:
                 ToastUtil.ShortToast(activity, "我的上传");
+                myUpload();
                 break;
             case R.id.rl_browsed:
                 ToastUtil.ShortToast(activity, "我看过的");
+                myBrowsed();
                 break;
             case R.id.rl_settings:
                 ToastUtil.ShortToast(activity, "设置");
+                settings();
                 break;
             case R.id.fab_upload:
                 intentToActivity(activity, LocalVideoActivity.class);
                 break;
             case R.id.rl_logout:
-                application.setUser(null);
-                intentToActivity(activity,LoginActivity.class);
-                activity.finish();
+                logout();
                 break;
         }
     }
 
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == 0 && resultCode == activity.RESULT_OK) {
-//            initData();
-//        }
-//    }
+    @Override
+    public void avatar() {
+        mPresenter.avatarAction(civAvatar,tvNickname);
+    }
+
+    @Override
+    public void myCollect() {
+        mPresenter.myCollect();
+    }
+
+    @Override
+    public void myUpload() {
+        mPresenter.myUpload();
+    }
+
+    @Override
+    public void myBrowsed() {
+        mPresenter.myBrowsed();
+    }
+
+    @Override
+    public void settings() {
+        mPresenter.settings();
+    }
+
+    @Override
+    public void logout() {
+        mPresenter.logout();
+    }
 }

@@ -1,7 +1,9 @@
 package com.beautiful.beautiful.mvp.ui.adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,7 +56,8 @@ public class LocalVideoAdapter
 
             holder.setImageView(context, video.getPath());
             holder.setTvTitle(video.getTitle());
-            holder.setTvDuration(video.getDuration() + "");
+            holder.setTvDuration(video.getDuration());
+            holder.setTvSize(video.getSize());
 
             if (listener != null) {
                 holder.llLocalVideo.setOnClickListener(new View.OnClickListener() {
@@ -70,11 +73,23 @@ public class LocalVideoAdapter
                     public void onClick(View view) {
                         int position = holder.getLayoutPosition();
                         listener.onItemClick(holder.btnUpload, position);
-                        if (holder.getButtonState() == State.UPLOADING) {
-                            holder.cancel();
-                        } else {
-                            holder.upload(video.getPath());
-                        }
+                        View dialogView = LayoutInflater.from(context)
+                                .inflate(R.layout.dialog_video_type,null);
+                        AlertDialog dialog = new AlertDialog.Builder(context)
+                                .setView(dialogView)
+                                .setNegativeButton("取消", null)
+                                .setPositiveButton("上传", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        if (holder.getButtonState() == State.UPLOADING) {
+                                            holder.cancel();
+                                        } else {
+                                            holder.upload(video.getPath());
+                                        }
+                                    }
+                                })
+                                .create();
+                        dialog.show();
                     }
                 });
             }

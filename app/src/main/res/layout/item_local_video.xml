@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/ll_local_video"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="@dimen/size_80"
     android:orientation="horizontal"
     android:layout_marginBottom="1dp"
     android:background="@color/white"
@@ -11,7 +11,7 @@
 
     <ImageView
         android:id="@+id/iv_thumbnail"
-        android:layout_width="64dp"
+        android:layout_width="@dimen/size_64"
         android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/margin_16"
         android:layout_marginTop="@dimen/margin_8"
@@ -35,8 +35,8 @@
 
             <Button
                 android:id="@+id/btn_upload"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="@dimen/size_48"
+                android:layout_height="@dimen/size_48"
                 android:elevation="0dp"
                 android:layout_centerInParent="true"
                 android:text="上传"
@@ -46,8 +46,8 @@
 
             <com.mikhaellopez.circularprogressbar.CircularProgressBar
                 android:id="@+id/cpb_upload"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="@dimen/size_56"
+                android:layout_height="@dimen/size_56"
                 android:layout_centerInParent="true"
                 app:background_progressbar_color="@color/bg_gray_dark"
                 app:background_progressbar_width="@dimen/size_2"
@@ -72,6 +72,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:text="00:00"/>
+            android:text="00:00"
+            android:textColor="@color/txt_light_gray"
+            android:textSize="@dimen/size_txt_small_tip"/>
+
+        <TextView
+            android:id="@+id/tv_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_duration"
+            android:layout_marginLeft="@dimen/margin_8"
+            android:layout_alignParentBottom="true"
+            android:text="0MB"
+            android:textColor="@color/txt_light_gray"
+            android:textSize="@dimen/size_txt_small_tip"/>
     </RelativeLayout>
 </LinearLayout>

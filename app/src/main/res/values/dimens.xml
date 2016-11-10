@@ -71,6 +71,7 @@
     <dimen name="size_56">56dp</dimen>
     <dimen name="size_64">64dp</dimen>
     <dimen name="size_72">72dp</dimen>
+    <dimen name="size_80">80dp</dimen>
     <dimen name="size_124">124dp</dimen>
 
 </resources>

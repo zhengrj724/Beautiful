@@ -90,7 +90,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin_16"
-                    android:src="@mipmap/ic_loyalty_gray_24dp" />
+                    android:src="@drawable/ic_loyalty_gray_24dp" />
 
                 <TextView
                     android:id="@+id/tv_title0"
@@ -134,7 +134,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin_16"
-                    android:src="@mipmap/ic_unarchive_gray_24dp" />
+                    android:src="@drawable/ic_unarchive_gray_24dp" />
 
                 <TextView
                     android:id="@+id/tv_title1"
@@ -178,7 +178,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin_16"
-                    android:src="@mipmap/ic_visibility_gray_24dp" />
+                    android:src="@drawable/ic_visibility_gray_24dp" />
 
                 <TextView
                     android:id="@+id/tv_title2"
@@ -217,7 +217,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin_16"
-                    android:src="@mipmap/ic_settings_gray_24dp" />
+                    android:src="@drawable/ic_settings_gray_24dp" />
 
                 <TextView
                     android:id="@+id/tv_title3"
@@ -244,7 +244,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin_16"
-                    android:src="@mipmap/ic_settings_gray_24dp" />
+                    android:src="@drawable/ic_exit_to_app_gray_24dp" />
 
                 <TextView
                     android:id="@+id/tv_title4"
@@ -263,7 +263,7 @@
         android:id="@+id/fab_upload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_file_upload_white_24dp"
+        android:src="@drawable/ic_file_upload_white_24dp"
         android:layout_margin="@dimen/margin_16"
         app:layout_anchorGravity="end|bottom"
         app:layout_anchor="@id/abl_personal"
