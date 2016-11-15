@@ -14,6 +14,8 @@ import com.beautiful.beautiful.mvp.ui.holder.VideoHolder;
 
 import java.util.List;
 
+import cn.bmob.v3.datatype.BmobFile;
+
 /**
  * Created by Mr.R on 2016/7/12.
  */
@@ -49,7 +51,7 @@ public class VideoAdapter
             final VideoHolder holder = (VideoHolder) viewHolder;
             final Tb_Video video = videos.get(position);
 
-            holder.setImageView(video.getImage());
+            holder.setImageView(video.getVideo());
             holder.setTvTheme(video.getTheme());
             holder.setCbBrowse(video.getBrowseNum()+"");
             holder.setCbComment(video.getCommentNum()+"");

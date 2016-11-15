@@ -27,7 +27,8 @@ public class VideoPresenter {
 
     //刷新所有视频
     public void refreshVideo(final List<Tb_Video> videos, final Handler handler) {
-        query.setLimit(10);
+        query.setLimit(10);//分页查询
+        query.order("-createdAt");//按创建时间倒叙查询
         query.findObjects(new FindListener<Tb_Video>() {
             @Override
             public void done(List<Tb_Video> list, BmobException e) {

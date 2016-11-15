@@ -5,136 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TableLayout
+    <EditText
+        android:id="@+id/et_theme"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16"
+        android:layout_marginLeft="@dimen/margin_16"
+        android:layout_marginRight="@dimen/margin_16"
+        android:hint="视频名称" />
 
-        <TableRow
-            android:paddingTop="@dimen/margin_24"
-            android:paddingBottom="@dimen/margin_24">
+    <EditText
+        android:id="@+id/et_describe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16"
+        android:layout_marginLeft="@dimen/margin_16"
+        android:layout_marginRight="@dimen/margin_16"
+        android:hint="描述"/>
 
-            <TextView
-                android:id="@+id/tv_classify0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:drawableTop="@mipmap/ic_launcher"
-                android:text="创意"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16"
+        android:layout_marginLeft="@dimen/margin_16"
+        android:layout_marginRight="@dimen/margin_16"
+        android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tv_classify1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:drawableTop="@mipmap/ic_launcher"
-                android:text="广告"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="视频类型"
+            android:textColor="@color/txt_gray"
+            android:textSize="@dimen/size_txt_body"/>
 
-            <TextView
-                android:id="@+id/tv_classify2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:drawableTop="@mipmap/ic_launcher"
-                android:text="时尚"/>
-        </TableRow>
-
-        <TableRow
-            android:paddingTop="@dimen/margin_24"
-            android:paddingBottom="@dimen/margin_24">
-
-            <TextView
-                android:id="@+id/tv_classify3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:drawableTop="@mipmap/ic_launcher"
-                android:text="创意"/>
-
-            <TextView
-                android:id="@+id/tv_classify4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:drawableTop="@mipmap/ic_launcher"
-                android:text="广告"/>
-
-            <TextView
-                android:id="@+id/tv_classify5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:drawableTop="@mipmap/ic_launcher"
-                android:text="时尚"/>
-        </TableRow>
-
-        <TableRow
-            android:paddingTop="@dimen/margin_24"
-            android:paddingBottom="@dimen/margin_24">
-
-            <TextView
-                android:id="@+id/tv_classify6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:drawableTop="@mipmap/ic_launcher"
-                android:text="创意"/>
-
-            <TextView
-                android:id="@+id/tv_classify7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:drawableTop="@mipmap/ic_launcher"
-                android:text="广告"/>
-
-            <TextView
-                android:id="@+id/tv_classify8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:drawableTop="@mipmap/ic_launcher"
-                android:text="时尚"/>
-        </TableRow>
-
-        <TableRow
-            android:paddingTop="@dimen/margin_24"
-            android:paddingBottom="@dimen/margin_24">
-
-            <TextView
-                android:id="@+id/tv_classify9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:drawableTop="@mipmap/ic_launcher"
-                android:text="创意"/>
-
-            <TextView
-                android:id="@+id/tv_classify10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:drawableTop="@mipmap/ic_launcher"
-                android:text="广告"/>
-
-            <TextView
-                android:id="@+id/tv_classify11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:drawableTop="@mipmap/ic_launcher"
-                android:text="时尚"/>
-        </TableRow>
-    </TableLayout>
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/acs_video_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/video_type"/>
+    </LinearLayout>
 </LinearLayout>

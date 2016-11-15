@@ -79,7 +79,7 @@ public class LocalVideoActivity extends BaseActivity
             public void onItemClick(View view, int position) {
                 switch (view.getId()) {
                     case R.id.ll_local_video:
-                        ToastUtil.ShortToast(LocalVideoActivity.this,"视频"+position);
+//                        ToastUtil.ShortToast(LocalVideoActivity.this,"视频"+position);
                         break;
                     case R.id.btn_upload:
                         //上传视频

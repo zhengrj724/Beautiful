@@ -1,10 +1,8 @@
 package com.beautiful.beautiful.mvp.ui.holder;
 
-import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -13,11 +11,6 @@ import android.widget.TextView;
 import com.beautiful.beautiful.R;
 import com.beautiful.beautiful.utils.VideoUtil;
 import com.bumptech.glide.Glide;
-
-import java.io.File;
-
-import cn.bmob.v3.datatype.BmobFile;
-
 
 /**
  * Created by Mr.R on 2016/7/12.

@@ -2,30 +2,21 @@ package com.beautiful.beautiful.mvp.ui.adapter;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.EditText;
 
 import com.beautiful.beautiful.R;
 import com.beautiful.beautiful.config.State;
-import com.beautiful.beautiful.mvp.model.Tb_Video;
 import com.beautiful.beautiful.mvp.model.VideoInfo;
-import com.beautiful.beautiful.mvp.ui.activity.LocalVideoActivity;
 import com.beautiful.beautiful.mvp.ui.holder.LocalVideoHolder;
-import com.beautiful.beautiful.mvp.ui.holder.VideoHolder;
-import com.beautiful.beautiful.utils.ToastUtil;
 
-import java.io.File;
 import java.util.List;
-
-import cn.bmob.v3.datatype.BmobFile;
-import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.UploadFileListener;
 
 /**
  * Created by Mr.R on 2016/7/12.
@@ -34,10 +25,13 @@ public class LocalVideoAdapter
         extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context context;
     private List<VideoInfo> videos;
+    private String[] videoTypes;
+    private String videoType;
 
     public LocalVideoAdapter(Context context, List<VideoInfo> videos) {
         this.context = context;
         this.videos = videos;
+        this.videoTypes = context.getResources().getStringArray(R.array.video_type);
     }
 
     @Override
@@ -75,20 +69,40 @@ public class LocalVideoAdapter
                         listener.onItemClick(holder.btnUpload, position);
                         View dialogView = LayoutInflater.from(context)
                                 .inflate(R.layout.dialog_video_type,null);
+
+                        final EditText etTheme = (EditText) dialogView.findViewById(R.id.et_theme);
+                        final EditText etDescribe = (EditText) dialogView.findViewById(R.id.et_describe);
+                        AppCompatSpinner acsVideoType = (AppCompatSpinner) dialogView.findViewById(R.id.acs_video_type);
+
+                        acsVideoType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                                videoType = videoTypes[i];
+                            }
+
+                            @Override
+                            public void onNothingSelected(AdapterView<?> adapterView) {
+
+                            }
+                        });
+
                         AlertDialog dialog = new AlertDialog.Builder(context)
                                 .setView(dialogView)
                                 .setNegativeButton("取消", null)
                                 .setPositiveButton("上传", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
+                                        String theme = etTheme.getText().toString().trim();
+                                        String describe = etDescribe.getText().toString().trim();
+
                                         if (holder.getButtonState() == State.UPLOADING) {
                                             holder.cancel();
                                         } else {
-                                            holder.upload(video.getPath());
+                                            //视频本地地址，名称，描述，类型
+                                            holder.upload(video.getPath(),theme,describe,videoType);
                                         }
                                     }
-                                })
-                                .create();
+                                }).create();
                         dialog.show();
                     }
                 });
