@@ -21,6 +21,7 @@ import com.beautiful.beautiful.mvp.ui.adapter.VideoAdapter;
 import com.beautiful.beautiful.mvp.ui.common.BaseFragment;
 import com.beautiful.beautiful.utils.HandlerKey;
 import com.beautiful.beautiful.utils.RefreshUtil;
+import com.beautiful.beautiful.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +54,7 @@ public class RecommendFragment extends BaseFragment implements
                     mAdapter.notifyDataSetChanged();
                     break;
                 case HandlerKey.REFRESH_FAIL:
+                    ToastUtil.ShortToast(activity,"刷新失败");
                     srlVideo.setRefreshing(false);
                     break;
                 default:
@@ -109,7 +111,6 @@ public class RecommendFragment extends BaseFragment implements
         if (!srlVideo.isRefreshing()) {
             srlVideo.setRefreshing(true);
         }
-        mList.clear();
         mPresenter.refreshVideo(mList,mHandler);
     }
 

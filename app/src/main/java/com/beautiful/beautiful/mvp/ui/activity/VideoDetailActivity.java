@@ -1,5 +1,6 @@
 package com.beautiful.beautiful.mvp.ui.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -12,9 +13,13 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.MediaController;
 import android.widget.ProgressBar;
@@ -23,13 +28,17 @@ import android.widget.VideoView;
 
 import com.beautiful.beautiful.R;
 import com.beautiful.beautiful.config.Key;
+import com.beautiful.beautiful.config.State;
 import com.beautiful.beautiful.mvp.model.Tb_Comment;
+import com.beautiful.beautiful.mvp.model.Tb_User;
 import com.beautiful.beautiful.mvp.model.Tb_Video;
 import com.beautiful.beautiful.mvp.ui.adapter.CommentAdapter;
 import com.beautiful.beautiful.mvp.ui.common.BaseActivity;
 import com.beautiful.beautiful.utils.HandlerKey;
 import com.beautiful.beautiful.utils.HidingScrollListener;
+import com.beautiful.beautiful.utils.InputUtil;
 import com.beautiful.beautiful.utils.RefreshUtil;
+import com.beautiful.beautiful.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +46,10 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.SaveListener;
 
 public class VideoDetailActivity extends BaseActivity implements
         SwipeRefreshLayout.OnRefreshListener {
@@ -57,11 +70,15 @@ public class VideoDetailActivity extends BaseActivity implements
     ProgressBar pbLoading;
     @Bind(R.id.tv_percent)
     TextView tvPercent;
+    @Bind(R.id.et_input)
+    EditText etInput;
 
+    private Tb_User mUser;
     private Tb_Video mVideo;
     private MediaController mMediaController;
     private CommentAdapter mAdapter;
     private List mList;
+    private int fabState = State.FAB_EDIT;
 
     private Handler mHandler = new Handler() {
         @Override
@@ -71,13 +88,13 @@ public class VideoDetailActivity extends BaseActivity implements
                     srlVideoDetail.setRefreshing(false);
                     break;
                 case HandlerKey.REFRESH_FAIL:
+                    ToastUtil.ShortToast(VideoDetailActivity.this,"刷新失败");
                     srlVideoDetail.setRefreshing(false);
                     break;
                 case 1:
                     if (tvPercent.getVisibility() == View.VISIBLE) {
-
-                        tvPercent.setText(vvVideo.getBufferPercentage()+"%");
-                        mHandler.sendEmptyMessageDelayed(1,300);
+                        tvPercent.setText(vvVideo.getBufferPercentage() + "%");
+                        mHandler.sendEmptyMessageDelayed(1, 300);
                     }
                     break;
                 default:
@@ -93,6 +110,7 @@ public class VideoDetailActivity extends BaseActivity implements
         ButterKnife.bind(this);
         initView();
         init();
+        initListener();
     }
 
     private void initView() {
@@ -164,7 +182,7 @@ public class VideoDetailActivity extends BaseActivity implements
     //初始化列表
     private void initRecyclerView() {
         mList = new ArrayList();
-        mAdapter = new CommentAdapter(mList);
+        mAdapter = new CommentAdapter(this,mList);
         rvVideoDetail.setLayoutManager(new LinearLayoutManager(this));
         rvVideoDetail.setAdapter(mAdapter);
 
@@ -192,15 +210,56 @@ public class VideoDetailActivity extends BaseActivity implements
         initData();
     }
 
+    private void initListener() {
+        etInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.length() > 0) {
+                    fabComment.setImageResource(R.drawable.ic_send_white_24dp);
+                    fabComment.show();
+                } else {
+                    fabComment.hide();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+    }
+
     //初始化数据
     private void initData() {
         //添加头部
         mList.add(mVideo);
+        bindComments();
+    }
 
-        for (int i = 0; i < 20; i++) {
-            mList.add(new Tb_Comment());
-        }
-        mAdapter.notifyDataSetChanged();
+    //绑定评论数据
+    private void bindComments() {
+        BmobQuery<Tb_Comment> query = new BmobQuery<>();
+        query.addWhereEqualTo("parentId",mVideo.getObjectId());
+        query.setLimit(10);
+        query.findObjects(new FindListener<Tb_Comment>() {
+            @Override
+            public void done(List<Tb_Comment> list, BmobException e) {
+                if (e == null) {
+                    mList.clear();
+                    mList.add(mVideo);
+                    mList.addAll(1,list);
+                    mAdapter.notifyDataSetChanged();
+                    mHandler.sendEmptyMessage(HandlerKey.REFRESH_SUCCESS);
+                } else {
+                    mHandler.sendEmptyMessage(HandlerKey.REFRESH_FAIL);
+                }
+            }
+        });
     }
 
     @Override
@@ -248,11 +307,58 @@ public class VideoDetailActivity extends BaseActivity implements
     }
 
     private void doRefresh() {
-
+        bindComments();
     }
 
     @OnClick(R.id.fab_comment)
     public void onClick() {
-        Snackbar.make(flBackground, "评论功能暂未开放", Snackbar.LENGTH_SHORT).show();
+        if (fabState == State.FAB_EDIT) {
+            //编辑评论
+            etInput.setVisibility(View.VISIBLE);
+            etInput.setFocusable(true);
+            etInput.setFocusableInTouchMode(true);
+            etInput.requestFocus();
+            etInput.requestFocusFromTouch();
+            InputUtil.showSoftInput(this,etInput);
+            fabComment.hide();
+            fabState = State.FAB_SEND;
+        } else {
+            //发送评论
+            sendComment();
+            etInput.setText("");
+            etInput.setVisibility(View.INVISIBLE);
+            fabComment.setImageResource(R.drawable.ic_create_white_24dp);
+            InputUtil.hideSoftInput(this,etInput);
+            fabState = State.FAB_EDIT;
+        }
+    }
+
+    //发送评论
+    private void sendComment() {
+        mUser = application.getUser();
+        final ProgressDialog dialog = new ProgressDialog(this);
+        dialog.setMessage("发送评论...");
+        dialog.show();
+        String comment = etInput.getText().toString().trim();
+
+        Tb_Comment tb_comment = new Tb_Comment();
+        tb_comment.setAvatar(mUser.getAvatar());
+        tb_comment.setNickname(mUser.getNickName());
+        tb_comment.setTextContent(comment);
+        tb_comment.setParentId(mVideo.getObjectId());//视频的id
+
+        tb_comment.save(new SaveListener<String>() {
+            @Override
+            public void done(String s, BmobException e) {
+                if (e == null) {
+                    //评论添加成功
+                    doRefresh();
+                    ToastUtil.LongToast(VideoDetailActivity.this,"评论成功");
+                } else {
+                    ToastUtil.LongToast(VideoDetailActivity.this,"评论失败");
+                }
+                dialog.dismiss();
+            }
+        });
     }
 }

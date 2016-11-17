@@ -10,49 +10,43 @@ import cn.bmob.v3.BmobObject;
  */
 public class Tb_Comment extends BmobObject implements Serializable{
 
-    private int _id;
-    private String targetUserName;
-    private String username;
-    private String textContent;
-    private long datetime;
-    private int parentId;//评论目标视频的id
-    private int childId;//某视频下某评论的id
-    private List<Tb_Comment> childComments;
+    private String avatar = "";
+    private String targetNickname = "";
+    private String nickname = "";
+    private String textContent = "";
+    private String parentId = "";//评论目标视频的id
+    private String childId = "";//某视频下某评论的id
+    private Integer commentNum;
+//    private List<Tb_Comment> childComments;
+//    private long datetime;
 
-    public Tb_Comment() {}
 
-    public Tb_Comment(int _id, String username, String textContent,
-                      Long datetime, int parentId, int childId) {
-        this._id = _id;
-        this.username = username;
-        this.textContent = textContent;
-        this.datetime = datetime;
-        this.parentId = parentId;
-        this.childId = childId;
+    public Tb_Comment() {
+        this.commentNum = 0;
     }
 
-    public int get_id() {
-        return _id;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void set_id(int _id) {
-        this._id = _id;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
-    public String getTargetUserName() {
-        return targetUserName;
+    public String getTargetNickname() {
+        return targetNickname;
     }
 
-    public void setTargetUserName(String targetUserName) {
-        this.targetUserName = targetUserName;
+    public void setTargetNickname(String targetNickname) {
+        this.targetNickname = targetNickname;
     }
 
-    public String getUsername() {
-        return username;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getTextContent() {
@@ -63,35 +57,27 @@ public class Tb_Comment extends BmobObject implements Serializable{
         this.textContent = textContent;
     }
 
-    public long getDatetime() {
-        return datetime;
-    }
-
-    public void setDatetime(long datetime) {
-        this.datetime = datetime;
-    }
-
-    public int getParentId() {
+    public String getParentId() {
         return parentId;
     }
 
-    public void setParentId(int parentId) {
+    public void setParentId(String parentId) {
         this.parentId = parentId;
     }
 
-    public int getChildId() {
+    public String getChildId() {
         return childId;
     }
 
-    public void setChildId(int childId) {
+    public void setChildId(String childId) {
         this.childId = childId;
     }
 
-    public List<Tb_Comment> getChildComments() {
-        return childComments;
+    public int getCommentNum() {
+        return commentNum;
     }
 
-    public void setChildComments(List<Tb_Comment> childComments) {
-        this.childComments = childComments;
+    public void setCommentNum(int commentNum) {
+        this.commentNum = commentNum;
     }
 }

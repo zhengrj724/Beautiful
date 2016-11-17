@@ -34,14 +34,20 @@ public class VideoPresenter {
             public void done(List<Tb_Video> list, BmobException e) {
                 if (e == null) {
                     //查询成功
-                    videos.addAll(list);
-                    handler.sendEmptyMessage(HandlerKey.REFRESH_SUCCESS);
+                    addData(videos,list,handler);
                 } else {
                     e.printStackTrace();
                     handler.sendEmptyMessage(HandlerKey.REFRESH_FAIL);
                 }
             }
         });
+    }
+
+    //添加数据
+    private void addData(List<Tb_Video> videos, List<Tb_Video> list, Handler handler) {
+        videos.clear();
+        videos.addAll(list);
+        handler.sendEmptyMessage(HandlerKey.REFRESH_SUCCESS);
     }
 
     //下拉刷新

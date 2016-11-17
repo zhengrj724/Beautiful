@@ -180,6 +180,7 @@ public class LocalVideoHolder extends RecyclerView.ViewHolder {
                 setButtonText("重试");
                 hideProgress();
                 ToastUtil.ShortToast(context,"上传失败"+msg);
+                Log.e("upload", "doneError: "+msg);
             }
         });
     }

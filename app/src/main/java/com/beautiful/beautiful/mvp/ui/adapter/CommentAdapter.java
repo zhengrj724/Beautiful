@@ -1,5 +1,6 @@
 package com.beautiful.beautiful.mvp.ui.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,12 +20,13 @@ import java.util.List;
  */
 public class CommentAdapter
         extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    private Context context;
     private List data;
     private static final int LOADING = -1;
     private static final int HEAD = 0;
     private static final int COMMENT = 1;
 
-    public CommentAdapter(List data) {
+    public CommentAdapter(Context context,List data) {
         this.data = data;
     }
 
@@ -46,7 +48,7 @@ public class CommentAdapter
                 //评论
                 view = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.item_comment, parent, false);
-                return CommentHolder.newInstance(view);
+                return CommentHolder.newInstance(context,view);
         }
         return null;
     }
@@ -56,6 +58,12 @@ public class CommentAdapter
         if (viewHolder instanceof CommentHolder) {
             final CommentHolder holder = (CommentHolder) viewHolder;
             Tb_Comment tbComment = (Tb_Comment) data.get(position);
+
+            holder.setAvatar(tbComment.getAvatar());
+            holder.setNickname(tbComment.getNickname());
+            holder.setTextContent(tbComment.getTextContent());
+            holder.setCommentNum(tbComment.getCommentNum());
+            holder.setTime(tbComment.getCreatedAt());
 
             if (listener != null) {
                 holder.rlComment.setOnClickListener(new View.OnClickListener() {
